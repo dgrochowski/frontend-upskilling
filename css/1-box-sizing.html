@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - Box sizing</title>
+    <style>
+        #example1 {
+            box-sizing: content-box;
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            border: 10px solid blue;
+        }
+
+        #example2 {
+            box-sizing: padding-box;
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            border: 10px solid blue;
+        }
+
+        #example3 {
+            box-sizing: border-box;
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            border: 10px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+<p>content-box:	Default. The width and height properties (and min/max properties) includes only the content. Border and padding are not included</p>
+<p>padding-box:	The width and height properties (and min/max properties) includes content and padding. Border are not included</p>
+<p>border-box: The width and height properties (and min/max properties) includes content, padding and border</p>
+
+<h2>box-sizing: content-box (default):</h2>
+<p>Width and height only apply to the content of the element:</p>
+<div id="example1">This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!</div>
+
+<h2>box-sizing: padding-box:</h2>
+<p>Width and height apply to the content and padding elements</p>
+<div id="example2">This div has a width of 300px. But the full width is 300px + 60px (left and right padding) = 360px</div>
+
+<h2>box-sizing: border-box:</h2>
+<p>Width and height apply to all parts of the element: content, padding and borders:</p>
+<div id="example3">Here, the full width is 300px, no matter what!</div>
+
+<p><a href="https://www.w3schools.com/cssref/css3_pr_box-sizing.asp" target="_blank">w3schools.com</a></p>
+
+</body>
+</html>
