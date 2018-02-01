@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - Selectors</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        div, .transparent {
+            color: rgba(0,0,0,0.7);
+        }
+
+        div b {
+            color: black;
+        }
+
+        div > b {
+            font-size: 2em;
+        }
+
+        div + p {
+            border: 1px solid red;
+        }
+
+        .select-green ~ p {
+            border: 1px solid green;
+        }
+
+        a:link, a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a[title]::after {
+            font-size: 0.8em;
+            content: "❓";
+        }
+
+        .capitalizeFirstLetter::first-letter {
+            text-transform: uppercase;
+            font-size: 1.5em;
+        }
+
+        li {
+            border-top: 1px solid #CCC;
+        }
+
+        li:last-child {
+            border-bottom: 1px solid #CCC;
+        }
+
+        li:nth-child(2n) {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p>p</p>
+
+    <p class="transparent">p.transparent</p>
+
+    <div>div</div>
+
+    <div>
+        <p><b>div p b</b></p>
+        <b>div b</b>
+    </div>
+    <p>First p after div</p>
+    <p>Second p after div</p>
+
+    <span class="select-green">.select-green</span>
+    <p>First p after .select-green</p>
+    <p>Second p after .select-green</p>
+    <p>Third p after .select-green</p>
+
+    <div><p>p in div</p></div>
+
+    <a href="#1">#1 link</a><br />
+    <a href="#2" title="Example link title">#2 link with title</a><br />
+
+    <p class="capitalizeFirstLetter">p.capitalizeFirstLetter</p>
+
+    <ul>
+        <li>odd</li>
+        <li>even</li>
+        <li>odd</li>
+        <li>even</li>
+        <li>odd</li>
+        <li>even</li>
+    </ul>
+</body>
+</html>
