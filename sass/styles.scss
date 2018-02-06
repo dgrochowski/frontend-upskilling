@@ -1,0 +1,28 @@
+@import "fonts";
+@import "mixins";
+@import "nesting";
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $backgroundColor;
+}
+
+header {
+  width: $headerWidth;
+  background: #FFF;
+  margin: 0 auto;
+  padding: 30px 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+.avatar {
+  background: url("./images/avatar-default.png");
+  @include border-radius(10px);
+  @include bg-size(100px, 100px);
+}

@@ -8,9 +8,9 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './webpack/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'assets'),
         filename: 'upskill-webpack.bundle.js'
     },
     module: {
@@ -27,7 +27,7 @@ module.exports = {
                 use: {
                     loader: 'html-loader',
                     options: {
-                        attrs: [':data-src']
+                        attrs: [':data-webpack']
                     }
                 }
             },
@@ -42,12 +42,30 @@ module.exports = {
                     // use style-loader in development
                     fallback: "style-loader"
                 })
-            }
+            },
+            {
+                test: /\.(otf|ttf|eot|woff|woff2)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: './fonts/[name].[ext]',
+                    },
+                }
+            },
+            {
+                test: /\.(jpg|jpeg|png|svg|gif)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: './images/[name].[ext]',
+                    },
+                }
+            },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: './webpack/index.html'
         }),
         extractSass
     ]
