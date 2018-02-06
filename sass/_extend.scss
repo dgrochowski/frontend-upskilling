@@ -1,0 +1,12 @@
+%message {
+  background: #FFF;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+}
+
+.success-message {
+  @extend %message;
+  border-color: green;
+  color: green;
+}

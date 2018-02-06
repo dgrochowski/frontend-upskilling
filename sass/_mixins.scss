@@ -10,3 +10,9 @@
   height: $height;
   background-size: $width $height;
 }
+
+.avatar {
+  background: url("./images/avatar-default.png");
+  @include border-radius(10px);
+  @include bg-size(100px, 100px);
+}
