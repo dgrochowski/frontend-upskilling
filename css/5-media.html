@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - Media</title>
+    <style>
+        @media print {
+            body {
+                background: #FFF;
+            }
+        }
+
+        @media handheld {
+            body {
+                background: #000;
+                color: #FFF;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                background: #000;
+                color: #FFF;
+            }
+        }
+
+        @media screen and (min-width: 501px) and (max-width: 800px) {
+            body {
+                background: blue;
+                color: #FFF;
+            }
+        }
+
+        @media screen and (min-width: 801px) {
+            body {
+                background: yellow;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    Test body text.
+</body>
+</html>
