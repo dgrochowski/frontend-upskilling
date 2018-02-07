@@ -1,0 +1,33 @@
+$article1Width: 400px;
+$article2Width: 330px;
+$borderSize: 2px;
+
+.article1, .article2 {
+  border: $borderSize solid green;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+.article1 {
+  float: left;
+  width: $article1Width;
+}
+
+.article2 {
+  float: right;
+  width: $article2Width;
+}
+
+.content {
+  background: #FFF;
+  margin: 0 auto;
+  padding: 10px;
+  border: $borderSize solid blue;
+  width: $article1Width + $article2Width + 20px + 2 * $borderSize;  // <=== Operators + *
+}
+
+.content::after {
+  content: '';
+  clear: both;
+  display: table;
+}

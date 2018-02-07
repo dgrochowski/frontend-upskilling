@@ -1,0 +1,46 @@
+$responsiveBoxWidth: 350px;
+
+.responsiveBox {
+  margin: 0 auto;
+  width: $responsiveBoxWidth;
+  height: 100px;
+  color: #FFF;
+  border: 1px solid #FFF;
+  @if $responsiveBoxWidth < 100px {
+    background: green;
+  } @else if $responsiveBoxWidth >= 100px and $responsiveBoxWidth < 400px {
+    background: blue;
+  } @else if $responsiveBoxWidth >= 400px {
+    background: red;
+  }
+}
+
+.iteration {
+  border: 1px solid blue;
+  background: #CCC;
+  @for $i from 1 through 10 {
+    .item-#{$i} {
+      border: $i * 2px solid red;
+      width: 2px;
+      height: 2px;
+    }
+  }
+}
+
+.headers {
+  $i: 4;
+  @while $i > 0 {
+    h#{$i} {
+      font-family: Marion;
+      font-weight: 400 * $i;
+      color: #FFF;
+    }
+    $i: $i - 1;
+  }
+
+  @each $header, $size in (h1: 2em, h2: 2.5em, h3: 1.2em) {
+    #{$header} {
+      font-size: $size;
+    }
+  }
+}

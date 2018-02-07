@@ -1,0 +1,19 @@
+@function calc-width($borderSize, $padding, $contentSize: 0) {
+  @return 2 * $borderSize + 2 * $padding + $contentSize;
+}
+
+.content-left {
+  float: left;
+  border: 2px solid blue;
+  padding: 10px;
+  background: #FFF;
+  min-width: calc-width(2px, 10px);
+}
+
+.content-right {
+  float: right;
+  border: 2px solid blue;
+  padding: 30px;
+  background: #EEE;
+  min-width: calc-width(2px, 30px, 100px);
+}

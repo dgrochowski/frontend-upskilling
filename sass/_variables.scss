@@ -1,0 +1,13 @@
+$backgroundColor: red;
+$headerWidth: 20em;
+
+body {
+  background: $backgroundColor;
+}
+
+header {
+  width: $headerWidth;
+  background: #FFF;
+  margin: 0 auto;
+  padding: 30px 50px;
+}
