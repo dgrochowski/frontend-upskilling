@@ -1,0 +1,7 @@
+$vd-border-color: #FFF;
+$vd-border-color: blue !default;
+
+.variable-defaults {
+  border: 2px solid $vd-border-color;
+  padding: 5px;
+}
