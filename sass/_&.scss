@@ -1,0 +1,12 @@
+a {
+  color: #222;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+  }
+
+  .footer & {
+    color: #FFF;
+  }
+}
