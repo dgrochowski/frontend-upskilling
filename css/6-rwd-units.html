@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - RWD units</title>
+    <style>
+        body {
+            font-size: 10px;
+        }
+
+        div {
+            font-size: 1.5em;
+        }
+
+        .parent-em {
+            padding: 10px;
+            border: 1px solid red;
+            width: 10em;
+        }
+
+        .child-em {
+            padding: 10px;
+            border: 1px solid blue;
+            width: 10em;
+        }
+
+        .parent-rem {
+            padding: 10px;
+            border: 1px solid red;
+            width: 10rem;
+        }
+
+        .child-rem {
+            padding: 10px;
+            border: 1px solid blue;
+            width: 10rem;
+        }
+
+        .v-content {
+            width: 80vw;
+            height: 300px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .v-content-child {
+            width: 70vw;
+            height: 10vh;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        .always-visible-content {
+            width: 100vmin;
+            background: #CCC;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    text
+    <div>
+        div text (1.5em x text size)
+        <div>
+            div div text (1.5em x div text size)
+        </div>
+    </div>
+    em:
+    <div class="parent-em">
+        <div class="child-em"></div>
+    </div>
+    rem:
+    <div class="parent-rem">
+        <div class="child-rem"></div>
+    </div>
+    <div class="v-content"><div class="v-content-child"></div></div>
+    <div class="always-visible-content">Content</div>
+</body>
+</html>
