@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - Flexbox</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Tahoma;
+            font-size: 13px;
+        }
+
+        section {
+            float: left;
+            margin: 20px;
+        }
+
+        .container {
+            background: lightskyblue;
+        }
+
+            .container div {
+                background: #EEE;
+                padding: 10px;
+                margin: 5px;
+                text-align: center;
+            }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-row-reverse {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-column-reverse {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            width: 150px;
+        }
+
+        .flex-wrap-reverse {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            width: 150px;
+        }
+
+        .flex-flow {
+            display: flex;
+            flex-flow: row wrap;
+            width: 150px;
+        }
+
+        .flex-justify-center {
+            display: flex;
+            width: 400px;
+            justify-content: center;
+        }
+
+        .flex-justify-flex-start {
+            display: flex;
+            width: 400px;
+            justify-content: flex-start;
+        }
+
+        .flex-justify-flex-end {
+            display: flex;
+            width: 400px;
+            justify-content: flex-end;
+        }
+
+        .flex-justify-space-around {
+            display: flex;
+            width: 400px;
+            justify-content: space-around;
+        }
+
+        .flex-justify-space-evenly {
+            display: flex;
+            width: 400px;
+            justify-content: space-evenly;
+        }
+
+        .flex-justify-space-between {
+            display: flex;
+            width: 400px;
+            justify-content: space-between;
+        }
+
+        .flex-align-items-center {
+            display: flex;
+            height: 150px;
+            align-items: center;
+        }
+
+        .flex-align-items-flex-start {
+            display: flex;
+            height: 150px;
+            align-items: flex-start;
+        }
+
+        .flex-align-items-flex-end {
+            display: flex;
+            height: 150px;
+            align-items: flex-end;
+        }
+
+        .flex-align-items-stretch {
+            display: flex;
+            height: 150px;
+            align-items: stretch;
+        }
+
+        .flex-align-items-baseline {
+            display: flex;
+            height: 150px;
+            align-items: baseline;
+        }
+
+        .flex-align-content-center {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: center;
+        }
+
+        .flex-align-content-flex-start {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: flex-start;
+        }
+
+        .flex-align-content-flex-end {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: flex-end;
+        }
+
+        .flex-align-content-stretch {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: stretch;
+        }
+
+        .flex-align-content-space-around {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: space-around;
+        }
+
+        .flex-align-content-space-evenly {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: space-evenly;
+        }
+
+        .flex-align-content-space-between {
+            display: flex;
+            flex-wrap: wrap;
+            height: 150px;
+            width: 120px;
+            align-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <strong>Default container</strong>
+        <div class="container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex container</strong>
+        <div class="container flex">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex row reverse</strong>
+        <div class="container flex-row-reverse">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex column</strong>
+        <div class="container flex-column">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex column-reverse</strong>
+        <div class="container flex-column-reverse">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex wrap</strong>
+        <div class="container flex-wrap">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex wrap-reverse</strong>
+        <div class="container flex-wrap-reverse">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex flow</strong>
+        <div class="container flex-flow">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-center</strong>
+        <div class="container flex-justify-center">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-flex-start</strong>
+        <div class="container flex-justify-flex-start">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-flex-end</strong>
+        <div class="container flex-justify-flex-end">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-space-around</strong>
+        <div class="container flex-justify-space-around">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-space-evenly</strong>
+        <div class="container flex-justify-space-evenly">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex justify-space-between</strong>
+        <div class="container flex-justify-space-between">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-items-center</strong>
+        <div class="container flex-align-items-center">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-items-flex-start</strong>
+        <div class="container flex-align-items-flex-start">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-items-flex-end</strong>
+        <div class="container flex-align-items-flex-end">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-items-stretch</strong>
+        <div class="container flex-align-items-stretch">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-items-baseline</strong>
+        <div class="container flex-align-items-baseline">
+            <div>1</div>
+            <div style="font-size: 16px;">2</div>
+            <div style="font-size: 14px; height: 60px;">3</div>
+            <div style="height: 100px;">4</div>
+            <div style="font-size: 26px; height: 80px;">5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-center</strong>
+        <div class="container flex-align-content-center">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-flex-start</strong>
+        <div class="container flex-align-content-flex-start">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-flex-end</strong>
+        <div class="container flex-align-content-flex-end">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-stretch</strong>
+        <div class="container flex-align-content-stretch">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-space-around</strong>
+        <div class="container flex-align-content-space-around">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-space-evenly</strong>
+        <div class="container flex-align-content-space-evenly">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+
+    <section>
+        <strong>Flex align-content-space-between</strong>
+        <div class="container flex-align-content-space-between">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </section>
+</body>
+</html>
