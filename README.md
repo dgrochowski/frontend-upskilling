@@ -4,6 +4,13 @@ HTML, CSS, JavaScript, jQuery examples
 # CSS
 `box-sizing: padding-box` is not supported
 
+### Suit name convention
+- utilities: `.u-clearfix`, `.u-cf`
+- ComponentName: `.Component`, `.MyComponent`
+- ComponentName-descendentName: `.Component-header`, `.Component-bodyText`
+- ComponentName--modifierName: `.Component--default`, `.Component--primary`
+- ComponentName.is-stateOfComponent: `.Component.is-blue`, `.MyComponent.is-blue`, `.Component.is-stateOfComponent`
+
 # Webpack
 
 ### Setup environment
