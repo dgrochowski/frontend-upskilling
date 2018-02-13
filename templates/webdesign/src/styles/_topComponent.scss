@@ -121,7 +121,7 @@
       color: #FFF;
       text-transform: uppercase;
       border-radius: 50px;
-      background: #da7074;
+      background: $lineColor;
       padding: 15px 45px;
       margin: auto;
       margin-top: 90px;
@@ -133,7 +133,7 @@
     &-buttonline {
       width: 450px;
       height: 1px;
-      background: #da7074;
+      background: $lineColor;
       margin: auto;
       margin-top: -24px;
       z-index: 1;
@@ -149,7 +149,7 @@
       &-one, &-two {
         width: 1px;
         height: 191px;
-        background: #da7074;
+        background: $lineColor;
       }
 
       &-two {
@@ -172,7 +172,7 @@
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpointMd) {
     &-topBar {
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 

@@ -31,7 +31,7 @@
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpointMd) {
     flex-direction: row;
 
     &-item {
@@ -43,7 +43,7 @@
     }
   }
 
-  @media (min-width: 1300px) {
+  @media (min-width: $breakpointLg) {
     &-item {
       font-size: 18px;
     }

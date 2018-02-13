@@ -15,7 +15,7 @@
     font-style: normal;
     text-transform: uppercase;
     font-weight: 700;
-    color: #151515;
+    color: $defaultTextColor;
     font-size: 14px;
     letter-spacing: 1px;
   }
@@ -33,7 +33,7 @@
     padding-bottom: 10px;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpointMd) {
     justify-content: center;
     align-items: inherit;
     flex-direction: row;
