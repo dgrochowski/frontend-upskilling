@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS - Transition</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid red;
+            width: 50%;
+        }
+
+        .item {
+            width: 20%;
+            border: 1px solid red;
+            padding: 20px;
+            transition: all 3s;
+            margin-top: -1px;
+            cursor: crosshair;
+        }
+            .item:hover {
+                width: 100%;
+                background: chocolate;
+            }
+
+        .all-transition {
+        }
+            .all-transition:hover {
+                font-family: Arial;
+                font-size: 18px;
+                background: #000;
+                color: #FFF;
+                padding: 30px;
+                border: 5px dashed green;
+            }
+
+        .linear-function {
+            transition-timing-function: linear;
+        }
+        .ease-function {
+            transition-timing-function: ease;
+        }
+        .ease-in-function {
+            transition-timing-function: ease-in;
+        }
+        .ease-out-function {
+            transition-timing-function: ease-out;
+        }
+        .ease-in-out-function {
+            transition-timing-function: ease-in-out;
+        }
+        .step-start-function {
+            transition-timing-function: step-start;
+        }
+        .step-end-function {
+            transition-timing-function: step-end;
+        }
+        .steps-function {
+            transition-timing-function: steps(5, start);
+        }
+
+        .delay {
+            transition-delay: 1s;
+        }
+
+        .cubic-bezier {
+            transition-timing-function: cubic-bezier(0,1.58,.9,1.01);
+        }
+
+        .transition-in-steps:hover {
+            transition: width 1s,           /* change width in 1s */
+                        background 1s 1s,   /* after 1s, change background in 1s */
+                        padding 1s 2s,      /* after 2s, change padding in 1s */
+                        color 0.2s 2s         /* after 2s, change color in 0.2s */
+            ;
+            padding-left: 45%;
+            color: #FFF;
+            /*width: 100%;*/
+            /*background: chocolate;*/
+        }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+        <div class="item all-transition">All transition</div>
+        <div class="item linear-function">Linear function</div>
+        <div class="item ease-function">Ease function</div>
+        <div class="item ease-in-function">Ease-in function</div>
+        <div class="item ease-out-function">Ease-out function</div>
+        <div class="item ease-in-out-function">Ease-in-out function</div>
+        <div class="item step-start-function">Step-start function</div>
+        <div class="item step-end-function">Step-end function</div>
+        <div class="item steps-function">Steps function</div>
+        <div class="item delay">1s transition delay</div>
+        <div class="item cubic-bezier">cubic-bezier<br /><a href="http://cubic-bezier.com/#0,1.58,.9,1.01" target="_blank">http://cubic-bezier.com</a></div>
+        <div class="item transition-in-steps">Transition in steps</div>
+    </section>
+</body>
+</html>
