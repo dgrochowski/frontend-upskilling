@@ -9,10 +9,10 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-    entry: './webpack/index.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'upskill-webpack.bundle.js'
+        filename: 'webdesign-webpack.bundle.js'
     },
     module: {
         rules: [
@@ -63,7 +63,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './webpack/index.html'
+            template: './src/index.html'
         }),
         extractSass,
         new CleanWebpackPlugin(path.resolve(__dirname, 'dist'))

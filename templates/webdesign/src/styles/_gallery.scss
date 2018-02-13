@@ -1,0 +1,51 @@
+.Gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+
+  &-item {
+    color: #FFF;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1.5px;
+
+    img {
+      width: 100vw;
+      margin: 0;
+    }
+
+    &-title {
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: -36%;
+    }
+
+    &-description {
+      font-family: Georgia;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: calc(36% - 69px);
+    }
+  }
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+
+    &-item {
+      font-size: 14px;
+
+      img {
+        width: 25vw;
+      }
+    }
+  }
+
+  @media (min-width: 1300px) {
+    &-item {
+      font-size: 18px;
+    }
+  }
+}
