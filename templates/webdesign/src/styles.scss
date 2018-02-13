@@ -1,0 +1,61 @@
+@import "styles/fonts";
+@import "styles/variables";
+@import "styles/topComponent";
+@import "styles/gallery";
+@import "styles/bottomComponent";
+@import "styles/footer";
+
+* {
+  box-sizing: border-box;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #8e8c8c;
+}
+
+input:focus {
+  outline: none;
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      cursor: pointer;
+    }
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat;
+  color: #151515;
+  font-size: 62.5%; // 10px
+}
+
+.u-cf::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (min-width: 450px) {
+  body {
+    font-size: 75%; // 12px
+  }
+}
+
+//@media (min-width: 600px) {
+//}
+
+@media (min-width: 960px) {
+  body {
+    font-size: 87.5%; // 14px
+  }
+}
