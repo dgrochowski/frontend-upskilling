@@ -12,6 +12,9 @@ HTML, CSS, JavaScript, jQuery examples
 - ComponentName--modifierName: `.Component--default`, `.Component--primary`
 - ComponentName.is-stateOfComponent: `.Component.is-blue`, `.MyComponent.is-blue`, `.Component.is-stateOfComponent`
 
+# JavaScript
+- Async vs Defer differences: https://bitsofco.de/async-vs-defer/
+
 # Webpack
 
 ### Setup environment
