@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "node"
+
+before_script:
+  - npm install
+  - npm run build
+  - cd templates/webdesign
+  - npm install
+  - npm run build
+
+after_success:
+  - bash ./frontend-deploy.sh
+
+notifications:
+  email: false
