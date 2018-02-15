@@ -1,5 +1,6 @@
 # frontend-upskilling
 [![Build Status](https://travis-ci.org/dgrochowski/frontend-upskilling.svg?branch=master)](https://travis-ci.org/dgrochowski/frontend-upskilling)
+
 HTML, CSS, JavaScript, jQuery examples
 
 # CSS

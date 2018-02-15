@@ -10,8 +10,7 @@ before_script:
   - npm install
   - npm run build
 
-after_success:
-  - bash ./frontend-deploy.sh
+after_success: bash frontend-deploy.sh
 
 notifications:
   email: false
