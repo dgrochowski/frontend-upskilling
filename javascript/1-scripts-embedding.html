@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Scripts embedding</title>
+    <style>
+        body {
+            color: #FFF;
+        }
+
+        .box {
+            padding: 30px;
+        }
+
+        #one {
+            background: #A8A8A8;
+        }
+
+        #two {
+            background: #da7074;
+        }
+
+        #three {
+            background: #20C8C7;
+        }
+    </style>
+    <script>
+        one = document.getElementById("one");
+        if (null !== one) {
+            one.innerText = 'Text added before document load';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("two").innerText = 'Text added after document load';
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="one" class="box"></div>
+    <div id="two" class="box"></div>
+    <div id="three" class="box"></div>
+    <script>
+        document.getElementById("three").innerText = 'Text added after document';
+    </script>
+</body>
+</html>
