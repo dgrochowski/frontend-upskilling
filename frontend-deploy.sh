@@ -6,6 +6,7 @@ then
   cd deploy
   rm -rf frontend
   mkdir frontend
+  cp ../index.html ./frontend/index.html
   cp -r ../css ./frontend/css
   cp -r ../html5 ./frontend/html5
 #  cp -r ../dist ./frontend/dist
