@@ -4,14 +4,25 @@ node_js:
   - "node"
 
 before_script:
-  - npm install
-  - npm run build
-  - cd templates/webdesign
-  - npm install
-  - npm run build
+  - openssl aes-256-cbc -K $encrypted_8b819e5ccd0e_key -iv $encrypted_8b819e5ccd0e_iv -in .travis/github_deploy_key.enc -out /tmp/deploy_rsa -d
+  - travis_retry eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/deploy_rsa
+  - ssh-add /tmp/deploy_rsa
+  - |
+    if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+      travis_retry npm install
+      npm run build
+      cd templates/webdesign
+      travis_retry npm install
+      npm run build
+      cd ../..
+    fi
 
-after_success:
-  - bash ./frontend-deploy.sh
+after_script:
+  - |
+    if [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "master" ]; then
+      bash ./.travis/frontend-deploy.sh
+    fi
 
 notifications:
   email: false
