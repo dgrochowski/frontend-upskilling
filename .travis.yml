@@ -16,7 +16,9 @@ before_script:
 
 after_success:
   - cd ../..
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" ] and [ "$TRAVIS_BRANCH" = "master" ]; then bash ./.travis/frontend-deploy.sh; fi
-
+  - |
+    if [ $TRAVIS_PULL_REQUEST == "false" ] && [ $TRAVIS_BRANCH == "master" ]; then
+      ./.travis/frontend-deploy.sh
+    fi
 notifications:
   email: false
