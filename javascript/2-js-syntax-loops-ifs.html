@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Syntax, loops, conditional instructions</title>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        // SYNTAX //
+        var x, y, syntaxHtml;
+        x = 4;
+        y = 6;
+        z = x + y;
+        syntaxHtml = "<b>Syntax:</b><br />";
+        syntaxHtml += x + " + " + y + " = " + z + "<br />";
+        syntaxHtml += "string:1.50" + " number:" + 1.50 + "<br />";
+
+        // FOR //
+        var i, forLoopHtml;
+        var motorcycles = ['Honda', 'Yamaha', 'Ducati', 'Triumph', 'Kawasaki', 'Suzuki'];
+
+        forLoopHtml = "<b>For loop:</b><ul>";
+        for (i = 0; i < motorcycles.length; i++) {
+            forLoopHtml += "<li>" + motorcycles[i] + "</li>";
+        }
+        forLoopHtml += '</ul>';
+
+        // FOR IN, FOR OF //
+        var forInLoopHtml;
+        var models = {'Honda':'600RR', 'Yamaha':'R6', 'Ducati':'Desmosedici', 'Triumph':'675R', 'Kawasaki':'z1000sx', 'Suziki':'GSXR'};
+
+        forInLoopHtml = "<b>For in loop:</b><ul>";
+        for (brand in models) {
+            forInLoopHtml += "<li>" + brand + " " + models[brand] + "</li>";
+        }
+        forInLoopHtml += "</ul>";
+
+        // only in ES6
+        // var forOfLoopHtml = "<b>For of loop:</b><ul>";
+        // for (model of models) {
+        //     forOfLoopHtml += "<li>" + model + "</li>";
+        // }
+        // forOfLoopHtml += "</ul>";
+
+        // WHILE //
+        var whileLoopHtml, n;
+        n = 3;
+        whileLoopHtml = "<b>While loop:</b><br />";
+        while (n > 0) {
+            whileLoopHtml += n + "<br />";
+            n--;
+        }
+
+        // IF //
+        var ifHtml = "<b>IF statement:</b><br />";
+        var hour = (new Date()).getHours();
+
+        if (hour < 10) {
+            ifHtml += "Good morning";
+        } else if (hour < 20) {
+            ifHtml += "Good day";
+        } else {
+            ifHtml += "Good evening";
+        }
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("syntax", syntaxHtml);
+            addHtml("forLoop", forLoopHtml);
+            addHtml("forInLoop", forInLoopHtml);
+            // addHtml("forOfLoop", forOfLoopHtml);
+            addHtml("whileLoop", whileLoopHtml);
+            addHtml("if", ifHtml);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="syntax"></div>
+    <hr>
+    <div id="forLoop"></div>
+    <hr>
+    <div id="forInLoop"></div>
+    <hr>
+    <!--<div id="forOfLoop"></div>-->
+    <!--<hr>-->
+    <div id="whileLoop"></div>
+    <hr>
+    <div id="if"></div>
+    <hr>
+</body>
+</html>
