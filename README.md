@@ -1,4 +1,6 @@
 # frontend-upskilling
+Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis CI:
+
 [![Build Status](https://travis-ci.org/dgrochowski/frontend-upskilling.svg?branch=master)](https://travis-ci.org/dgrochowski/frontend-upskilling)
 
 HTML, CSS, JavaScript, jQuery examples

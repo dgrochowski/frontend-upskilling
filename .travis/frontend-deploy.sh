@@ -8,6 +8,7 @@ mkdir frontend
 cp ../index.html ./frontend/index.html
 cp -r ../css ./frontend/css
 cp -r ../html5 ./frontend/html5
+cp -r ../javascript ./frontend/javascript
 #cp -r ../dist ./frontend/dist
 #cp -r ../node_modules ./frontend/node_modules
 #cp -r ../sass ./frontend/sass
