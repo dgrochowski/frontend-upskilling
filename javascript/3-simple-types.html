@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Simple types</title>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var intVar = 10;
+        var stringVar = '20';
+        var boolVar = true;
+        var intDecimalsVar = 10.00;
+        var exponentiationVar = 34e2;
+        var negativeExponentiationVar = 34e-2;
+
+        var intsHtml = '<b>int + int = int</b><br />';
+        intsHtml += intVar + " + " + intVar + " = ";
+        intsHtml += intVar + intVar;
+
+        var stringsHtml = '<b>string + string = string</b><br />';
+        stringsHtml += stringVar + " + " + stringVar + " = ";
+        stringsHtml += stringVar + stringVar;
+
+        var intStringHtml = '<b>int + string = string</b><br />';
+        intStringHtml += intVar + " + " + stringVar + " = ";
+        intStringHtml += intVar + stringVar;
+
+        var boolsHtml = '<b>bool + bool = int</b><br />';
+        boolsHtml += boolVar + " + " + boolVar + " = ";
+        boolsHtml += boolVar + boolVar;
+
+        var boolIntHtml = '<b>bool + int = int</b><br />';
+        boolIntHtml += boolVar + " + " + intVar + " = ";
+        boolIntHtml += boolVar + intVar;
+
+        var boolStringHtml = '<b>bool + string = string</b><br />';
+        boolStringHtml += boolVar + " + " + stringVar + " = ";
+        boolStringHtml += boolVar + stringVar;
+
+        var boolIntStringHtml = '<b>bool + int + string = int + string = string</b><br />';
+        boolIntStringHtml += boolVar + " + " + intVar + " + " + stringVar + " = ";
+        boolIntStringHtml += boolVar + intVar + stringVar;
+
+        var stringIntBool = '<b>string + int + bool = string</b><br />';
+        stringIntBool += stringVar + " + " + intVar + " + " + boolVar + " = ";
+        stringIntBool += stringVar + intVar + boolVar;
+
+        var intIntDecimalsHtml = '<b>int vs intDecimals</b><br />';
+        intIntDecimalsHtml += intVar + " vs " + intDecimalsVar;
+
+        var exponentiationHtml = '<b>exponentiation</b><br />';
+        exponentiationHtml += '34e2 = ';
+        exponentiationHtml += exponentiationVar;
+
+        var negativeExponentiationHtml = '<b>negative exponentiation</b><br />';
+        negativeExponentiationHtml += '34e-2 = ';
+        negativeExponentiationHtml += negativeExponentiationVar;
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("ints", intsHtml);
+            addHtml("strings", stringsHtml);
+            addHtml("intstring", intStringHtml);
+            addHtml("bools", boolsHtml);
+            addHtml("boolint", boolIntHtml);
+            addHtml("boolstring", boolStringHtml);
+            addHtml("boolintstring", boolIntStringHtml);
+            addHtml("stringintbool", stringIntBool);
+            addHtml("intintdecimals", intIntDecimalsHtml);
+            addHtml("exponentiation", exponentiationHtml);
+            addHtml("negativeexponentiation", negativeExponentiationHtml);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="ints"></div>
+    <hr>
+    <div id="strings"></div>
+    <hr>
+    <div id="intstring"></div>
+    <hr>
+    <div id="bools"></div>
+    <hr>
+    <div id="boolint"></div>
+    <hr>
+    <div id="boolstring"></div>
+    <hr>
+    <div id="boolintstring"></div>
+    <hr>
+    <div id="stringintbool"></div>
+    <hr>
+    <div id="intintdecimals"></div>
+    <hr>
+    <div id="exponentiation"></div>
+    <hr>
+    <div id="negativeexponentiation"></div>
+    <hr>
+</body>
+</html>
