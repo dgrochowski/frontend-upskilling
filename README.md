@@ -17,6 +17,10 @@ HTML, CSS, JavaScript, jQuery examples
 
 # JavaScript
 - Async vs Defer differences: https://bitsofco.de/async-vs-defer/
+- undeclared, undefined, null
+  - `undeclared` - variables don’t even exist
+  - `undefined` - variables exist, but don’t have anything assigned to them
+  - `null` - variables exist and have null assigned to them
 
 # Webpack
 

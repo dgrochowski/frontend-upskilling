@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Null vs undefined</title>
+    <style>
+        td {
+            padding: 10px;
+            border: 1px solid #CCC;
+        }
+
+        td:nth-child(1) {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var html = '<h3>Null & undefined differences</h3>';
+        html += '<table>';
+
+        html += '<tr><td>null == undefined</td><td>';
+        html += null == undefined;
+        html += '</td></tr>';
+
+        html += '<tr><td>null === undefined</td><td>';
+        html += null === undefined;
+        html += '</td></tr>';
+
+        html += '<tr><td>typeof(null)</td><td>';
+        html += typeof(null);
+        html += '</td></tr>';
+
+        html += '<tr><td>typeof(undefined)</td><td>';
+        html += typeof(undefined);
+        html += '</td></tr>';
+
+        var newVar;
+        html += '<tr><td>var newVar<br />typeof(newVar)</td><td>';
+        html += typeof(newVar);
+        html += '</td></tr>';
+
+        var nullVar = null;
+        html += '<tr><td>var nullVar = null<br />typeof(nullVar)</td><td>';
+        html += typeof(nullVar);
+        html += '</td></tr>';
+
+        html += '</table>';
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("nullundefined", html);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="nullundefined"></div>
+</body>
+</html>
