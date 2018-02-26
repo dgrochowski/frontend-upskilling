@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Functions, IIFE, closures</title>
+    <style>
+        .closure {
+            font-size: 14px;
+        }
+
+        .closure span {
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .closure span:hover {
+            text-decoration: underline;
+        }
+
+        .closure .sm {
+            font-size: 12px;
+        }
+
+        .closure .md {
+            font-size: 14px;
+        }
+
+        .closure .lg {
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var kmh = 140;
+
+        function convertToMph(kmh) {
+            return Math.round(kmh * 0.621371192);
+        }
+
+        function convertToKmh(mph) {
+            return Math.round(mph * 1.609344);
+        }
+
+        var mph = convertToMph(kmh);
+        var kmh2 = convertToKmh(mph);
+
+        var iifeHtml = '<h3>Functions, IIFE, closures</h3>';
+        iifeHtml += kmh + "km/h = " + mph + "mph<br />";
+        iifeHtml += mph + "mph = " + kmh2 + "km/h<br />";
+
+        // IIFE
+        (function(){
+            var givenVar = 'some value';
+        })();
+
+        iifeHtml += "<br />givenVar: " + typeof(givenVar) + "<br />";
+
+        // CLOSURES
+        function setFontSize(size) {
+            return function() {
+                document.getElementById('closuretext').style.fontSize = size + 'px';
+            };
+        }
+
+        var size12 = setFontSize(12);
+        var size14 = setFontSize(14);
+        var size16 = setFontSize(16);
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("iife", iifeHtml);
+
+            document.getElementById('sm').onclick = size12;
+            document.getElementById('md').onclick = size14;
+            document.getElementById('lg').onclick = size16;
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="iife"></div>
+    <hr>
+    <div class="closure">
+        <span class="sm" id="sm">small text</span>
+        <span class="md" id="md">medium text</span>
+        <span class="lg" id="lg">large text</span>
+        <div id="closuretext"><br />Sample text</div>
+    </div>
+</body>
+</html>
