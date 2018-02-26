@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Objects</title>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var objectsHtml = '<h3>Objects:</h3>';
+
+        var myMoto = new Object();
+        myMoto.model = "Yamaha R6";
+        myMoto['color'] = "Black";
+
+        objectsHtml += "My moto: <b>" + myMoto.color + " " + myMoto.model + "</b><br />";
+        objectsHtml += "produced in a year: <b>" + myMoto.year + "</b><br /><br />";
+
+        var properties;
+        for (prop in myMoto) {
+            if (undefined === properties) {
+                properties = prop;
+            } else {
+                properties += ', ' + prop;
+            }
+        }
+        objectsHtml += "listing object properties by <u>for .. in</u> loop: <b>" + properties + '</b><br />';
+
+        objectsHtml += "return an array of object properties by <u>Object.keys(myObj)</u>: <b>" + Object.keys(myMoto) + "</b><br />";
+
+        objectsHtml += "return an array of object propertie names by <u>Object.getOwnPropertyNames(myObj)</u>: <b>" + Object.getOwnPropertyNames(myMoto) + "</b><br /><br />";
+
+        // Prepare new object using Object Initializer
+        var myFriendsMoto = {
+            model: 'Honda Fireblade',
+            'color': 'Blue',
+            engine: {
+                cylinders: 4,
+                size: 954,
+            }
+        };
+        objectsHtml += "Objects created by Object Initializer works exactly the same like other objects<br />";
+        objectsHtml += "My friends moto: <b>" + myFriendsMoto.color + " " + myFriendsMoto.model + "</b><br />";
+        objectsHtml += "with <b>" + myFriendsMoto.engine.cylinders + " cylinder, " + myFriendsMoto.engine.size + "ccm</b> engine<br /><br />";
+
+        // Create object using function
+        function Owner(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        function Motorcycle(model, color, owner) {
+            this.model = model;
+            this.color = color;
+            this.owner = owner;
+        }
+
+        var me = new Owner('Dawid', 25);
+        var myFriend = new Owner('Matt', 29);
+
+        var moto1 = new Motorcycle('Yamaha R6', 'Black', me);
+        var moto2 = new Motorcycle('Honda Fireblade', 'Blue', myFriend);
+
+        objectsHtml += "Objects created by function<br />";
+        objectsHtml += "1st moto owner: <b>" + moto1.owner.name + "</b><br />";
+        objectsHtml += "2nd moto owner: <b>" + moto2.owner.name + "</b><br /><br />";
+
+        // we can always add extra property
+        moto2.engine = {
+            cylinders: 4,
+            size: 954,
+        };
+
+        // Object.create method usage
+        objectsHtml += "Object.create() method usage:<br />";
+        var dreamCar = {
+            model: 'Alpina B6 F13',
+            color: 'blue',
+            describe: function(description = 'My dream car is ') {
+                return description + this.color + " " + this.model;
+            },
+
+            // Object method can be declared also in this way:
+            describe(description = 'My dream car is ') {
+                return description + this.color + " " + this.model;
+            },
+        };
+
+        var myDreamCar = Object.create(dreamCar);
+        var someonesDreamCar = Object.create(dreamCar);
+        someonesDreamCar.model = 'Lamborghini Aventador';
+        someonesDreamCar.color = 'orange';
+
+        objectsHtml += "<hr>";
+        objectsHtml += myDreamCar.describe() + "<br />";
+        objectsHtml += someonesDreamCar.describe('Someones dream car is ') + "<br />";
+        objectsHtml += "<hr>";
+
+        // Object getters and setters
+        var addition = {
+            a: 2,
+            b: 3,
+            get sum() {
+                return this.a + this.b;
+            }
+        };
+
+        objectsHtml += "<br />Custom getter: ";
+        objectsHtml += "<b>" + addition.a + " + " + addition.b + " = " + addition.sum + "</b><br /><br />";
+
+        // Delete object properties
+        objectsHtml += "Delete object properties:<br /><b>";
+        var newObj = {
+            temporaryVar: "it's something",
+        }
+        objectsHtml += newObj.temporaryVar + " and ";
+        delete newObj.temporaryVar;
+        objectsHtml += newObj.temporaryVar + "</b><br /><br />";
+
+        // Object references
+        objectsHtml += "Objects reference:<br />";
+        var Driver = {
+            experience: 15,
+            describe() {
+                return "I'm a bus driver. I've been driving for <b>" + this.experience + "</b> years.<br />";
+            }
+        };
+        objectsHtml += Driver.describe();
+
+        var Michael = Driver;
+        Michael.experience = 7;
+
+        objectsHtml += Driver.describe();
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("objects", objectsHtml);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="objects"></div>
+</body>
+</html>

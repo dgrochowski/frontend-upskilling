@@ -21,6 +21,7 @@ HTML, CSS, JavaScript, jQuery examples
   - `undeclared` - variables don’t even exist
   - `undefined` - variables exist, but don’t have anything assigned to them
   - `null` - variables exist and have null assigned to them
+- instead of `document.getElementsByClassName('className')[0].getElementsByTagName('tagName')` you can use: `document.querySelectorAll('.className tagName')`
 
 # Webpack
 
