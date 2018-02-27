@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Finding DOM elements</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var domId = document.getElementById('domId');
+            console.log("document.getElementById('domId')");
+            console.log(domId);
+            console.log('');
+
+            var domClass = document.getElementsByClassName('domClass');
+            console.log("getElementsByClassName('domClass')[0]");
+            console.log(domClass[0]);
+            console.log('');
+
+            var section = document.getElementsByTagName('section');
+            console.log("getElementsByTagName('section')[0]");
+            console.log(section[0]);
+            console.log('');
+
+            var querySelector = document.querySelector('ul li');
+            console.log("querySelector('ul li')");
+            console.log(querySelector);
+            console.log('');
+
+            var querySelectorAll = document.querySelectorAll('ul li');
+            console.log("querySelectorAll('ul li')");
+            console.log(querySelectorAll);
+            console.log('');
+
+            document.querySelectorAll('ul li')[0].style.color = 'red';
+            console.log("document.querySelectorAll('ul li')[0].style.color = 'red';")
+            console.log("!important - to change style for whole collection you have to use loop")
+        }, false );
+    </script>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+    <div id="domId"></div>
+    <div class="domClass"></div>
+    <section></section>
+    <ul>
+        <li>list element 1</li>
+        <li>list element 2</li>
+        <li>list element 3</li>
+    </ul>
+    <div id="test"></div>
+</body>
+</html>
