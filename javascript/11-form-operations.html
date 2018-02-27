@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Form operations</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 0 20%;
+        }
+
+        input, select, fieldset {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function required(input) {
+            var value = input.value;
+
+            if (undefined === input.type) {
+                input = input[0];
+            }
+
+            if ('' !== value) {
+                input.setCustomValidity('');
+                return;
+            }
+
+            return 'Please fill in this field.';
+        }
+
+        function pattern(input, pattern) {
+            if ('' === input.value) {
+                return;
+            }
+
+            var allowedWords = pattern.split('|');
+            for (i in allowedWords) {
+                if (input.value === allowedWords[i]) {
+                    return;
+                }
+            }
+
+            return 'Please match the format requested.';
+        }
+
+        function registerValidation() {
+            var form = document.getElementById('register');
+
+            var validation = {
+                textpattern: {'pattern': 'one|two'},
+                email: {'required': true},
+                password: {'required': true},
+                radio: {'required': true},
+                select: {'required': true},
+            };
+
+            for (field in validation) {
+                var fieldValidation = validation[field];
+                var validResult = [];
+
+                var formField = form[field];
+                if (undefined === formField.type) {
+                    formField = formField[0];
+                }
+
+                for (validator in fieldValidation) {
+                    var validatorValue = fieldValidation[validator];
+                    var result;
+
+                    if ('required' === validator && true === validatorValue) {
+                        result = required(formField);
+                    }
+
+                    if ('pattern' === validator && 'string' === typeof validatorValue) {
+                        result = pattern(formField, validatorValue);
+                    }
+
+                    if (result) {
+                        validResult[field] = result;
+                    }
+                }
+
+                if (undefined !== validResult[field]) {
+                    var error = validResult[field];
+                    formField.setCustomValidity(error);
+                } else {
+                    formField.setCustomValidity('');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <form id="register" action="" method="GET">
+
+        <label for="text">text input</label>
+        <input type="text" id="text" name="text" />
+
+        <label for="textpattern">text input with pattern one|two</label>
+        <input type="text" id="textpattern" name="textpattern" />
+
+        <label for="email">email input</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">password input</label>
+        <input type="password" id="password" name="password" />
+
+        <label for="url">url input</label>
+        <input type="url" id="url" name="url" />
+
+        <label for="color">color input</label>
+        <input type="color" id="color" name="color" value="#ffffff" />
+
+        <fieldset>
+            <legend>radio buttons in fieldset</legend>
+            <input type="radio" name="radio" value="yes" id="radio_yes" />
+            <label for="radio_yes">Yes</label>
+            <input type="radio" name="radio" value="no" id="radio_no" />
+            <label for="radio_no">No</label>
+        </fieldset>
+
+        <div>
+            <input type="checkbox" id="checkbox" name="checkbox" value="yes" />
+            <label for="checkbox">checkbox</label>
+        </div>
+
+        <label for="date">date input</label>
+        <input type="date" name="date" id="date" min="1900-01-01" max="2001-01-01" />
+
+        <label for="select">select field</label>
+        <select name="select" id="select">
+            <option value="" disabled selected>---</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+        </select>
+
+        <label for="range">range input</label>
+        <input type="range" name="range" id="range" min="0" max="10" value="8" step="0.1" />
+
+        <input type="reset" value="Reset" />
+        <input type="submit" value="Submit" onclick="registerValidation()" />
+    </form>
+</div>
+</body>
+</html>
