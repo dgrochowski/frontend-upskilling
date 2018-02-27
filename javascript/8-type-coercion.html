@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Type coercion</title>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var coercionHtml = '<h3>Type coercion:</h3>';
+
+        // Implicit coercion
+        var a = 10;
+        coercionHtml += "<b>Implicit coercion</b><br />";
+        coercionHtml += "a = a;<br />typeof a; -> ";
+        coercionHtml += typeof a + "<br />";
+        a = a + '';
+        coercionHtml += "a = 10 + '';<br />typeof a; -> ";
+        coercionHtml += typeof a + "<br /><br />";
+
+        // Explicit coercion
+        var b = 20;
+        coercionHtml += "<b>Explicit coercion</b><br />";
+        coercionHtml += "b = 10;<br />typeof b; -> ";
+        coercionHtml += typeof b + "<br />";
+        b = String(b);
+        coercionHtml += "b = String(b);<br />typeof b; -> "
+        coercionHtml += typeof b + "<br /><br />";
+
+        // Types comparing
+        var num = 1;
+        var obj = new String('1');
+        var str = '1';
+        var bool = true;
+
+        coercionHtml += "<b>Types comparing</b><br />";
+        coercionHtml += "var num = 1;<br />var obj = new String('1');<br />var str = '1';<br />var bool = true;<br /><br />";
+        coercionHtml += "num == obj -> " + (num == obj) + "<br />";
+        coercionHtml += "num == str -> " + (num == str) + "<br />";
+        coercionHtml += "num == bool -> " + (num == bool) + "<br />";
+        coercionHtml += "obj == str -> " + (obj == str) + "<br />";
+        coercionHtml += "obj == bool -> " + (obj == bool) + "<br />";
+        coercionHtml += "str == bool -> " + (str == bool) + "<br />";
+
+        coercionHtml += "<br />but... <b>num === obj -> " + (num === obj) + "</b> etc.<br />";
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("coercion", coercionHtml);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="coercion"></div>
+</body>
+</html>
