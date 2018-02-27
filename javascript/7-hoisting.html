@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Hoisting</title>
+    <script>
+        function addHtml(elementId, html) {
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        var hoistingHtml = '<h3>Objects:</h3>';
+
+        // Variables declaration
+
+        var1 = 'var1';
+        var var1;
+
+        // OR
+
+        var var2;
+        var2 = 'var2';
+
+        hoistingHtml += 'var1: ' + var1 + "<br />";
+        hoistingHtml += 'var2: ' + var2 + "<br />";
+
+        // Function declaration
+
+        addInfo();
+
+        function addInfo() {
+            hoistingHtml += '<br />Function declaration after calling<br />';
+        }
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            addHtml("hoisting", hoistingHtml);
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="hoisting"></div>
+</body>
+</html>
