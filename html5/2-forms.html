@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5 - Forms</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 0 20%;
+        }
+
+        input, select, fieldset {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="register" action="" method="GET">
+
+            <label for="text">text input</label>
+            <input type="text" id="text" name="text" />
+
+            <label for="email">email input</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">password input</label>
+            <input type="password" id="password" name="password" required />
+
+            <label for="url">url input</label>
+            <input type="url" id="url" name="url" />
+
+            <label for="color">color input</label>
+            <input type="color" id="color" name="color" value="#ffffff" />
+
+            <fieldset>
+                <legend>radio buttons in fieldset</legend>
+                <input type="radio" name="radio" value="yes" id="radio_yes" required />
+                <label for="radio_yes">Yes</label>
+                <input type="radio" name="radio" value="no" id="radio_no" />
+                <label for="radio_no">No</label>
+            </fieldset>
+
+            <div>
+                <input type="checkbox" id="checkbox" name="checkbox" value="yes" />
+                <label for="checkbox">checkbox</label>
+            </div>
+
+            <label for="date">date input</label>
+            <input type="date" name="date" id="date" min="1900-01-01" max="2001-01-01" />
+
+            <label for="select">select field</label>
+            <select name="select" id="select" required>
+                <option value="" disabled selected>---</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </select>
+
+            <label for="range">range input</label>
+            <input type="range" name="range" id="range" min="0" max="10" value="8" step="0.1" />
+            
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+</html>
