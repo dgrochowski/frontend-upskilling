@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - JSON object</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ///// STRING TO JSON /////
+            var text = document.getElementById('json').innerText;
+
+            // remove new lines and indentations
+            text = text.replace(/[\n\r    ]/g, '');
+
+            // parse to JSON object
+            var jsonFromText = JSON.parse(text);
+            console.log("JSON from HTML text:");
+            console.log(jsonFromText);
+            console.log('');
+
+            ///// ARRAY TO JSON /////
+            var array = {
+                "jsonData": [
+                    {"firstName": "John", "lastName": "Doe"},
+                    {"firstName": "Mark", "lastName": "Diver"},
+                    {"firstName": "Josh", "lastName": "Neumann"}
+                ]
+            };
+
+            // array to string
+            var stringJsonFromArray = JSON.stringify(array);
+            console.log("string JSON from array:");
+            console.log(stringJsonFromArray);
+            console.log('');
+
+            // parse to JSON object
+            console.log("JSON from string:");
+            console.log(JSON.parse(stringJsonFromArray));
+        });
+    </script>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+    <blockquote id="json">
+        {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;"jsonData": [<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"firstName": "John", "lastName": "Doe"},<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"firstName": "Mark", "lastName": "Diver"},<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"firstName": "Josh", "lastName": "Neumann"}<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;]<br />
+        }<br />
+    </blockquote>
+</body>
+</html>
