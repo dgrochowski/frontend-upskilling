@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Events</title>
+    <style>
+        div {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function changeTextColor() {
+            var color = 'rgb(' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ')';
+            this.style.color = color;
+        }
+
+        // DOCUMENT READY //
+        document.addEventListener('DOMContentLoaded', function () {
+            var changeColor1 = document.querySelector('#changeColor1');
+            var changeColor2 = document.querySelector('#changeColor2');
+            var changeColor3 = document.querySelector('#changeColor3');
+
+            changeColor1.onclick = changeTextColor;
+
+            changeColor2.addEventListener('click', changeTextColor);
+
+            changeColor3.onmouseover = changeTextColor;
+        }, false );
+    </script>
+</head>
+<body>
+    <div id="changeColor1">Change this text color</div>
+    <div id="changeColor2">Change this text color</div>
+    <div id="changeColor3">Change this text color</div>
+</body>
+</html>
