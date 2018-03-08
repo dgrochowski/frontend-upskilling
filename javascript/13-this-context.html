@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - This & context</title>
+    <style>
+        #el {
+            padding: 50px;
+            border: 1px solid red;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        a = 37;
+        console.log('window.a = ' + window.a);
+
+        this.b = "MDN";
+        console.log('window.b = ' + window.b);
+        console.log('b = ' + b);
+
+        console.log('');
+
+        // scope -> related to variables
+        var globalVar = 'value';
+        console.log('globalVar = ' + globalVar); // global visibility
+
+        (function() {
+            console.log('globalVar = ' + globalVar);
+
+            var localVar = 'value';
+            console.log('localVar = ' + localVar); // local visibility
+        })();
+
+        // console.log('localVar = ' + localVar); // impossible to display that local variable here
+
+        console.log('');
+
+        // context -> related to `this` object
+        console.log('this === window -> ' + (this === window));
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('');
+            console.log('//// DOMContentLoaded HERE ////');
+            console.log('this === document -> ' + (this === document));
+
+            var divEl = document.querySelector('#el');
+
+            divEl.onclick = function() {
+                console.log('(onclick) this === divEl -> ' + (this === divEl));
+            };
+
+        }, false );
+    </script>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+    <div id="el">Click here</div>
+</body>
+</html>

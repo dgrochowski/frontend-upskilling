@@ -22,6 +22,9 @@ HTML, CSS, JavaScript, jQuery examples
   - `undefined` - variables exist, but don’t have anything assigned to them
   - `null` - variables exist and have null assigned to them
 - instead of `document.getElementsByClassName('className')[0].getElementsByTagName('tagName')` you can use: `document.querySelectorAll('.className tagName')`
+- [Scope vs Context](https://blog.kevinchisholm.com/javascript/difference-between-scope-and-context/):
+  - *Scope* - function-based, variables visibility
+  - *Context* - object-based, value of `this` keyword, refers to the object to which a function belongs
 
 # Webpack
 
