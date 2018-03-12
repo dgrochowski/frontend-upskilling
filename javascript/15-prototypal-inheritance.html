@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - (ES5) Prototypal inheritance</title>
+    <script>
+        // START Declaration
+        function Vehicle(model, color, mass) {
+            this.model = model;
+            this.color = color;
+            this.mass = mass;
+            this.title = 'vehicle';
+        }
+
+        Vehicle.prototype.desc = function() {
+            console.log('');
+            console.log('/// ' + this.title + ' ///');
+            console.log(this.model);
+            console.log('color: ' + this.color);
+            console.log('mass: ' + this.mass + 'kg');
+        };
+
+        function Bike(model, color, mass) {
+            Vehicle.call(this, model, color, mass);
+            this.title = 'bike';
+        }
+
+        Bike.prototype.desc = function() {
+            Vehicle.prototype.desc.call(this);
+        };
+
+        function Motorcycle(model, color, mass, wheels) {
+            Vehicle.call(this, model, color, mass);
+            this.title = 'motorcycle';
+            this.wheels = wheels;
+        }
+
+        Motorcycle.prototype.desc = function() {
+            Vehicle.prototype.desc.call(this);
+            console.log('wheels: ' + this.wheels);
+        };
+
+        function Car(model, color, mass, engine) {
+            Vehicle.call(this, model, color, mass);
+            this.title = 'car';
+            this.engine = engine;
+        }
+
+        Car.prototype.desc = function() {
+            Vehicle.prototype.desc.call(this);
+            console.log('engine: ' + this.engine);
+        };
+
+        function Plane(model, color, mass, range) {
+            Vehicle.call(this, model, color, mass);
+            this.title = 'plane';
+            this.range = range;
+        }
+
+        Plane.prototype.desc = function() {
+            Vehicle.prototype.desc.call(this);
+            console.log('range: ' + this.range + 'km');
+        };
+        // EOF Declaration
+
+        var bike = new Bike("B'TWIN", 'red', 15);
+        bike.desc();
+
+        var motorcycle = new Motorcycle('Honda Goldwing Trike', 'red', 360, 3);
+        motorcycle.desc();
+
+        var car = new Car('Kia Ceed', 'white', 1400, '2.0 143HP');
+        car.desc();
+
+        var plane = new Plane('Airbus A380', 'white', 276000, 15200);
+        plane.desc();
+
+        // Check object types
+        console.log('');
+        console.log('bike typeof Vehicle? ' + (Object.getPrototypeOf(bike) === Vehicle.prototype));
+        console.log('bike typeof Bike? ' + (Object.getPrototypeOf(bike) === Bike.prototype));
+        console.log('motorcycle typeof Vehicle? ' + (Object.getPrototypeOf(motorcycle) === Vehicle.prototype));
+        console.log('motorcycle typeof Bike? ' + (Object.getPrototypeOf(motorcycle) === Bike.prototype));
+        console.log('motorcycle typeof Motorcycle? ' + (Object.getPrototypeOf(motorcycle) === Motorcycle.prototype));
+    </script>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+</body>
+</html>
