@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Basic design patterns</title>
+    <script>
+        var textToShow = 'accessible as ';
+
+        // Module pattern
+        var MODULE = function (text) {
+            var myPrivateVar = '// Module pattern'; // private variable (visible only in module)
+            console.log(myPrivateVar);
+
+            return  {
+                moduleProperty: text + 'MODULE.moduleProperty',
+                moduleMethod: function () {
+                    console.log(text + 'MODULE.moduleMethod()');
+                }
+            };
+        }(textToShow);
+
+        console.log(MODULE.moduleProperty);
+        MODULE.moduleMethod();
+
+        console.log('');
+
+        // Revealing module pattern
+        var REVEALING_MODULE = (function() {
+            // private vars and functions
+            var myPrivateVar = '// Revealing module pattern';
+
+            var welcome = function(text) {
+                console.log(myPrivateVar);
+                console.log(text + 'REVEALING_MODULE.welcome(text)');
+            };
+
+            // public vars and functions
+            return {
+                welcome: welcome
+            };
+        })();
+
+        REVEALING_MODULE.welcome(textToShow);
+
+        console.log('');
+
+        // Observer pattern
+        var OBSERVER = (function() {
+            var observers = [];
+
+            var subscribe = function(observer) {
+                observers.push(observer);
+                console.log(observers);
+            };
+
+            var unsubscribe = function(observer) {
+                var index = observers.indexOf(observer);
+                if(index > -1) {
+                    observers.splice(index, 1);
+                }
+                console.log(observers);
+            };
+
+            var notifyAll = function() {
+                for(var i = 0; i < observers.length; i++) {
+                    observers[i].notify();
+                }
+            };
+
+            return {
+                subscribe: subscribe,
+                unsubscribe: unsubscribe,
+                notifyAll: notifyAll,
+            };
+        })();
+
+        function Observer (name) {
+            return {
+                notify: function() {
+                    console.log("Observer " + name + " is notified!");
+                }
+            };
+        }
+
+        var obs1 = new Observer(1);
+        var obs2 = new Observer(2);
+        obs1.notify();
+        obs2.notify();
+        OBSERVER.subscribe(obs1);
+        OBSERVER.subscribe(obs2);
+        OBSERVER.unsubscribe(obs1);
+
+        OBSERVER.subscribe(obs1);
+        OBSERVER.notifyAll();
+
+    </script>
+</head>
+<body>
+    <code>
+        var textToShow = 'accessible as ';<br />
+    </code>
+    <hr>
+    <code>
+        // Module pattern<br />
+        var MODULE = function (text) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var myPrivateVar = '// Module pattern'; // private variable (visible only in module)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(myPrivateVar);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;return  {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moduleProperty: text + 'MODULE.moduleProperty',<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moduleMethod: function () {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(text + 'MODULE.moduleMethod()');<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        }(textToShow);<br />
+        <br />
+        console.log(MODULE.moduleProperty);<br />
+        MODULE.moduleMethod();
+    </code>
+    <hr>
+    <code>
+        // Revealing module pattern<br />
+        var REVEALING_MODULE = (function() {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;// private vars and functions<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var myPrivateVar = '// Revealing module pattern';<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var welcome = function(text) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(myPrivateVar);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(text + 'REVEALING_MODULE.welcome(text)');<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;// public vars and functions<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;return {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;welcome: welcome<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        })();<br />
+        <br />
+        REVEALING_MODULE.welcome(textToShow);
+    </code>
+    <hr>
+    <code>
+        // Observer pattern<br />
+        var OBSERVER = (function() {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var observers = [];<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var subscribe = function(observer) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observers.push(observer);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(observers);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var unsubscribe = function(observer) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index = observers.indexOf(observer);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(index > -1) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observers.splice(index, 1);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(observers);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;var notifyAll = function() {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(var i = 0; i < observers.length; i++) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observers[i].notify();<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;return {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subscribe: subscribe,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsubscribe: unsubscribe,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notifyAll: notifyAll,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+        })();
+    </code>
+    <hr>
+</body>
+</html>

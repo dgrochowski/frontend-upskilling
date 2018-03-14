@@ -1,9 +1,7 @@
 # frontend-upskilling
-Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis CI:
-
 [![Build Status](https://travis-ci.org/dgrochowski/frontend-upskilling.svg?branch=master)](https://travis-ci.org/dgrochowski/frontend-upskilling)
 
-HTML, CSS, JavaScript, jQuery examples
+Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis CI
 
 # CSS
 `box-sizing: padding-box` is not supported
@@ -25,6 +23,8 @@ HTML, CSS, JavaScript, jQuery examples
 - [Scope vs Context](https://blog.kevinchisholm.com/javascript/difference-between-scope-and-context/):
   - *Scope* - function-based, variables visibility
   - *Context* - object-based, value of `this` keyword, refers to the object to which a function belongs
+- Design Patterns:
+  - [Module Pattern vs Revealing Module Pattern](https://stackoverflow.com/a/22918556)
 
 # Webpack
 
