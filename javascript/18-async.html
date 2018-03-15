@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Asynchronous</title>
+    <script>
+        // Timeout & Interval
+        function foo(text) {
+            var textToDisplay = 'display log';
+
+            if (text) {
+                textToDisplay += ' with custom text: ' + text;
+            }
+
+            console.log(textToDisplay);
+        }
+
+        setTimeout(foo, 500);
+        setTimeout(function() {
+            foo('display after 0.7s');
+        }, 700);
+
+        var secInterval = setInterval(function() {
+            foo('display every second');
+        }, 1000);
+
+        setTimeout(function() {
+            clearInterval(secInterval);
+            console.log('Interval cleared!');
+        }, 5000);
+
+        // XMLHttpRequest, XHR
+        function xhrSend() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+
+            xhr.send();
+
+            xhr.addEventListener('load', function() {
+                if (this.status === 200) {
+                    var json = JSON.parse(this.responseText);
+                    var text = '';
+                    json.forEach(function (row) {
+                        text += '<tr>';
+                        text += '<td>' + row.userId + '</td>';
+                        text += '<td>' + row.id + '</td>';
+                        text += '<td>' + row.title + '</td>';
+                        text += '<td>' + row.body + '</td>';
+                        text += '</tr>';
+                    });
+                    var table = document.querySelector('.jsonContent');
+                    table.innerHTML += text;
+                }
+            });
+        }
+
+        // ES6 Fetch
+        console.log('/// Fetch ///');
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(
+                function(response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+
+                    return response.json();
+                }
+            )
+            .then(
+                function(json) {
+                    console.log(json);
+                }
+            )
+            .catch(
+                function(err) {
+                    console.log('Fetch Error :-S', err);
+                }
+            )
+        ;
+    </script>
+    <style>
+        .jsonContent {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin: 10px;
+        }
+
+        .jsonContent th, .jsonContent td {
+            padding: 10px;
+            border: 1px solid #CCC;
+        }
+    </style>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+    <button onclick="xhrSend()">XHR send</button>
+    <table class="jsonContent">
+        <tr>
+            <th>userId</th>
+            <th>id</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+    </table>
+</body>
+</html>
