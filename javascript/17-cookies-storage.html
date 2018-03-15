@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Cookies & Storage</title>
+    <script>
+        document.cookie = "name=oeschger";
+        document.cookie = "favorite_food=tripe";
+
+        function alertCookie() {
+            alert(document.cookie);
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+        }
+
+        function clearSessionStorage() {
+            sessionStorage.clear();
+        }
+
+        if ("undefined" !== typeof(Storage)) {
+            localStorage.removeItem('localVar');
+            if (undefined === localStorage.localVar) {
+                localStorage.setItem('localVar', 'Some local value');
+            }
+            var localVar = localStorage.getItem('localVar');
+            console.log(localVar);
+
+            sessionStorage.removeItem('sessionVar');
+            if (undefined === sessionStorage.sessionVar) {
+                sessionStorage.setItem('sessionVar', 'Some session value');
+            }
+            var sessionVar = sessionStorage.getItem('sessionVar');
+            console.log(sessionVar);
+        } else {
+            console.log('Storages are not supported in your browser version.');
+        }
+    </script>
+</head>
+<body>
+    <button onclick="alertCookie()">Show cookies</button>
+    <button onclick="clearLocalStorage()">Clear local storage</button>
+    <button onclick="clearSessionStorage()">Clear session storage</button>
+</body>
+</html>

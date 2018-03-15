@@ -25,6 +25,7 @@ Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis 
   - *Context* - object-based, value of `this` keyword, refers to the object to which a function belongs
 - Design Patterns:
   - [Module Pattern vs Revealing Module Pattern](https://stackoverflow.com/a/22918556)
+- Cookies are not supported for local files: `file:///`
 
 # Webpack
 
