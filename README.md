@@ -14,7 +14,7 @@ Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis 
 - ComponentName.is-stateOfComponent: `.Component.is-blue`, `.MyComponent.is-blue`, `.Component.is-stateOfComponent`
 
 # JavaScript
-- Async vs Defer differences: https://bitsofco.de/async-vs-defer/
+- Async vs Defer script loading differences: https://bitsofco.de/async-vs-defer/
 - undeclared, undefined, null
   - `undeclared` - variables don’t even exist
   - `undefined` - variables exist, but don’t have anything assigned to them
