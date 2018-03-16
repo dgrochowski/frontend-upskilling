@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - ES6 Let, const</title>
+    <script>
+        // const a; <- throws an error, value should be assigned to the const variable
+
+        const a = 5;
+        // a = 7; // (Uncaught TypeError: Assignment to constant variable.)
+
+        const b = {};
+        const c = [];
+
+        b.p = 3;
+        c.push('a');
+
+        console.log(b); // Object {p: 3}
+        console.log(c); // ["a"]
+
+        // To declare unchanged var
+        const CONFIG = Object.freeze({
+            URL: 'http://devenv.pl',
+            NAME: 'DevEnv'
+        });
+
+        CONFIG.NAME = 'replaces';
+        console.log(CONFIG); // Object {URL: "http://devenv.pl", NAME: "DevEnv"}
+    </script>
+</head>
+<body>
+    <h3>Check console (right click -> inspect -> console)</h3>
+</body>
+</html>
