@@ -38,6 +38,7 @@ Deployment to [Github pages](https://dgrochowski.github.io/frontend-upskilling/)
 - In ES6 you can marked `var` as deprecated
   - To declare objects and arrays you should use `const` (as often as possible)
   - If you cannot use `const`, use `let`
+- `'use strict;'` mode will force you to create better quality code. Use it as often as you can.
 
 # Webpack
 
