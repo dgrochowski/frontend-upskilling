@@ -26,6 +26,15 @@ Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis 
 - Design Patterns:
   - [Module Pattern vs Revealing Module Pattern](https://stackoverflow.com/a/22918556)
 - Cookies are not supported for local files: `file:///`
+- XMLHttpRequest Events:
+  - `loadstart` - fired when `progress` has begun
+  - `progress` - operation is in progress, data loading
+  - `load` - loading is finished, data is ready
+  - `abort` - loading is aborted
+  - `error` - fired when an error occurred
+  - `timeout` - fired when `progress` operation is terminated due to preset time expiring
+  - `loadend` - when `progress` has stopped (after `load`, `abort` or `error` have been dispatched)
+- **Ajax** - Asynchronous request technique based on `XMLHttpRequest` or ES6 `fetch()` method
 
 # Webpack
 
