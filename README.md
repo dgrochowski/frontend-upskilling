@@ -35,6 +35,9 @@ Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis 
   - `timeout` - fired when `progress` operation is terminated due to preset time expiring
   - `loadend` - when `progress` has stopped (after `load`, `abort` or `error` have been dispatched)
 - **Ajax** - Asynchronous request technique based on `XMLHttpRequest` or ES6 `fetch()` method
+- In ES6 you can marked `var` as deprecated
+  - To declare objects and arrays you should use `const` (as often as possible)
+  - If you cannot use `const`, use `let`
 
 # Webpack
 
