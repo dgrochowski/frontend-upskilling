@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript - Regular expressions</title>
+    <style>
+        #email {
+            border: 1px solid #CCC;
+        }
+
+            #email.error {
+                border: 2px solid red;
+            }
+
+            #email.ok {
+                border: 2px solid green;
+            }
+    </style>
+    <script>
+        // Example expression //
+        var regexp = /ab+c/i;
+        // or: new RegExp("ab+c", "i");
+
+        var resultArray = regexp.exec('Abbbbbc');
+        console.log(resultArray);
+        // // //
+
+        function validateMail() {
+            function clearStyle(input) {
+                input.classList.remove('error', 'ok');
+            }
+
+            function addErrorStyle(input) {
+                input.classList.add('error');
+            }
+
+            function addOkStyle(input) {
+                input.classList.add('ok');
+            }
+
+            var emailRegexp = /.+@.+\.[a-z]+/i;
+            var emailInput = document.querySelector('#email');
+            var email = emailInput.value;
+            email = email.replace(/ /g, '');
+
+            clearStyle(emailInput);
+            if ('' === email) {
+                return;
+            }
+
+            var result = emailRegexp.exec(email);
+
+            emailInput.value = email;
+
+            if (null !== result) {
+                addOkStyle(emailInput);
+            } else {
+                addErrorStyle(emailInput);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="email" type="text" />
+    <button onclick="validateMail()">Validate e-mail</button>
+</body>
+</html>
