@@ -1,7 +1,7 @@
 # frontend-upskilling
 [![Build Status](https://travis-ci.org/dgrochowski/frontend-upskilling.svg?branch=master)](https://travis-ci.org/dgrochowski/frontend-upskilling)
 
-Deployment to [Github pages](https://dgrochowski.github.io/frontend/) by Travis CI
+Deployment to [Github pages](https://dgrochowski.github.io/frontend-upskilling/) by Travis CI
 
 # CSS
 `box-sizing: padding-box` is not supported
