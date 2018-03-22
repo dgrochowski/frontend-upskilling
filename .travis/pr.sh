@@ -1,28 +1,24 @@
 #!/bin/bash
 
-DIRECTORY="frontend-upskilling-pr";
 SHORT_HEAD=${TRAVIS_PULL_REQUEST_SHA:0:7};
+PR_DIR="up-pr"
 
-git clone git@github.com:dgrochowski/dgrochowski.github.io.git deploy
-cd deploy
+mkdir saved_files
+
+git clone git@github.com:dgrochowski/frontend-upskilling-pr.git $PR_DIR
+cd $PR_DIR
 git checkout master
-
-if [ ! -d "$DIRECTORY" ]; then
-  mkdir $DIRECTORY
-fi
-cd $DIRECTORY
 
 if [ -d "$SHORT_HEAD" ]; then
   rm -rf $SHORT_HEAD
 fi
 mkdir $SHORT_HEAD
 
-cp -r ../../docs/* $SHORT_HEAD/.
-cd ..
+cp -r ../docs/* $SHORT_HEAD/.
 
 git add *
 git reset HEAD~1 --soft
-git commit -m "Frontend upskill pages"
+git commit -m "Frontend upskilling PR"
 git push origin master -f
 
 body="{\"body\": \":bell: $SHORT_HEAD changes available **[here](https://dgrochowski.github.io/frontend-upskilling-pr/$SHORT_HEAD/)** (Added automatically by Travis CI)\"}";
