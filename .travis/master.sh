@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DIRECTORY="frontend-upskilling-pr";
 SHORT_MASTER=${TRAVIS_COMMIT:0:7};
 TEMP_DIR="temp_pr_dir";
+PR_DIR="up-pr"
 
 if [ -d "../$TEMP_DIR" ]; then
   rm -rf ../$TEMP_DIR
@@ -22,16 +22,17 @@ do
     fi
 done
 
-git clone git@github.com:dgrochowski/dgrochowski.github.io.git deploy
-cd deploy
+git clone git@github.com:dgrochowski/frontend-upskilling-pr.git $PR_DIR
+cd $PR_DIR
 git checkout master
 
-if [ -d "$DIRECTORY" ]; then
-  rm -rf $DIRECTORY
-fi
-mkdir $DIRECTORY
+cp index.html ../../$TEMP_DIR/index.html
 
-cp -r ../../$TEMP_DIR/* $DIRECTORY/.
+cd ..
+rm -rf $PR_DIR/*
+cd $PR_DIR
+
+cp -r ../../$TEMP_DIR/* .
 rm -rf ../../$TEMP_DIR
 
 git add *
